@@ -4,7 +4,7 @@
 <html>
 <head> 
 <meta charset="utf-8">
-<title>PHP 프로그래밍 입문</title>
+<title>모두의 클래스</title>
 <link rel="stylesheet" type="text/css" href="./css/common.css">
 <link rel="stylesheet" type="text/css" href="./css/member.css">
 <script>
@@ -74,6 +74,7 @@ function check_input()
       }
 
       document.member_form.submit();
+      check_email();
    }
 
    function reset_form() {
@@ -94,7 +95,7 @@ function check_input()
    }
 
    function check_email() {
-    window.open("member_check_email.php","Emailcheck",
+    window.open("member_check_email.php?email=" + document.member_form.email1.value + "@" + document.member_form.email2.value,"Emailcheck",
           "left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes");
    }
    
@@ -168,11 +169,7 @@ function check_input()
 				        <div class="col1">이메일</div>
 				        <div class="col2">
 							<input type="text" name="email1">@<input type="text" name="email2">
-				        </div> 
-                        <div class="col3">
-				        	<a href="#"><img src="./img/id_check.png" 
-				        		onclick="check_email()"></a>
-				        </div>                       
+				        </div>                   
 			       	</div>
 			       	<div class="clear"></div>
 

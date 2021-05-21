@@ -6,6 +6,8 @@
     $sex  = $_POST["sex"];
     $email1  = $_POST["email1"];
     $email2  = $_POST["email2"];
+    $hash = md5(rand(0,1000)); //Generate random 32 character hash and assign it to a local variable. 해시함수 생성
+    // Example output: f4552671f8909587cf485ea990207f3b
 
     $email = $email1."@".$email2;
     $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
@@ -13,8 +15,8 @@
               
     $con = mysqli_connect("localhost", "user1", "12345", "all_class");
 
-   $sql = "insert into members (id, pass, name, birth, gender, email, regist_day) ";
-   $sql .= "values('$id', '$pass', '$name', '$birth', '$sex', '$email', '$regist_day')";
+   $sql = "insert into members (id, pass, name, birth, gender, email, regist_day, hash) ";
+   $sql .= "values('$id', '$pass', '$name', '$birth', '$sex', '$email', '$regist_day', '$hash')";
    
    $sql2 = "select * from members where id='$id'";
    $result = mysqli_query($con, $sql2);
