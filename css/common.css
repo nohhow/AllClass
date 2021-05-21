@@ -11,7 +11,7 @@ a:hover { text-decoration:none; color: #222222; }
 a:visited { text-decoration:none; color: #222222; }
 a:active { text-decoration:none; color: #222222; }
 /* 상단 헤더 */
-#top { position: relative; width: 1000px; height: 80px; margin: 0 auto; }
+#top { position: relative; width: 1000px; height: 80px; margin: 0 auto; background : linear-gradient( to bottom, white, #d3d3d3);} /* <- 수정 그라데이션 + width 100%*/
 #top h3 { position: absolute; top: 25px; left: 40px; font-size: 16px; }
 #top #top_menu { float: right; margin: 30px 60px 0 0;}
 #top #top_menu li { display: inline; }

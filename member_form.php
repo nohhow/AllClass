@@ -93,6 +93,12 @@ function check_input()
           "left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes");
    }
 
+   function check_email() {
+    window.open("member_check_email.php","Emailcheck",
+          "left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes");
+   }
+   
+
 </script>
 </head>
 <body> 
@@ -162,7 +168,11 @@ function check_input()
 				        <div class="col1">이메일</div>
 				        <div class="col2">
 							<input type="text" name="email1">@<input type="text" name="email2">
-				        </div>                 
+				        </div> 
+                        <div class="col3">
+				        	<a href="#"><img src="./img/id_check.png" 
+				        		onclick="check_email()"></a>
+				        </div>                       
 			       	</div>
 			       	<div class="clear"></div>
 
