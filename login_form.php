@@ -2,7 +2,7 @@
 <html>
 <head> 
 <meta charset="utf-8">
-<title>PHP 프로그래밍 입문</title>
+<title>모두의 클래스</title>
 <link rel="stylesheet" type="text/css" href="./css/common.css">
 <link rel="stylesheet" type="text/css" href="./css/login.css">
 <script type="text/javascript" src="./js/login.js"></script>

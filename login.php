@@ -2,7 +2,7 @@
     $id   = $_POST["id"];
     $pass = $_POST["pass"];
 
-   $con = mysqli_connect("localhost", "user1", "12345", "sample");
+   $con = mysqli_connect("localhost", "user1", "12345", "all_class");
    $sql = "select * from members where id='$id'";
    $result = mysqli_query($con, $sql);
 
@@ -21,7 +21,8 @@
     {
         $row = mysqli_fetch_array($result);
         $db_pass = $row["pass"];
-
+        $db_active = $row["active"];
+        $db_email = $row["email"];
         mysqli_close($con);
 
         if($pass != $db_pass)
@@ -32,6 +33,23 @@
                 history.go(-1)
               </script>
            ");
+           exit;
+        }
+        elseif($db_active != 1){
+?>
+<script>
+  var db_email = '<?php echo $db_email;?>';
+</script>
+
+<?php
+          echo("
+          <script>
+            window.open('member_check_email.php?email=' + db_email,'Emailcheck',
+            'left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes');
+            window.alert('이메일 인증이 되지 않은 계정입니다! 계정을 활성화하기 위해서는 이메일 인증을 진행하세요.');
+            history.go(-1);
+          </script>
+          ");
            exit;
         }
         else
