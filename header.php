@@ -10,9 +10,18 @@
 ?>		
         <div id="top">
             <h3>
-                <a href="index.php">모두의 클래스</a>
+                <a id = "title" href="index.php">모두의 클래스</a>
+                
+                <script>
+                    var userid = '<?php echo $userid;?>';
+                    
+                    if(userid == ""){
+                    }else{
+                        document.getElementById("title").href = "class_index.php";
+                    }
+                </script>
             </h3>
-            <ul id="top_menu">  
+            <ul id="top_menu">
 <?php
     if(!$userid) {
 ?>                
@@ -21,7 +30,7 @@
                 <li><a href="login_form.php">로그인</a></li>
 <?php
     } else {
-                $logged = $username."(".$userid.")님[Level:".$userlevel.", Point:".$userpoint."]";
+                $logged = $username."(".$userid.")님";
 ?>
                 <li><?=$logged?> </li>
                 <li> | </li>

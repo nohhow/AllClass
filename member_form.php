@@ -84,6 +84,9 @@ function check_input()
       document.member_form.name.value = "";
       document.member_form.email1.value = "";
       document.member_form.email2.value = "";
+      document.getElementById("man").checked = false;
+      document.getElementById("woman").checked = false;
+      document.member_form.birth.value = "";
       document.member_form.id.focus();
       return;
    }
@@ -151,8 +154,8 @@ function check_input()
                     <div class="form">
 				        <div class="col1">성별</div>
                         <div class="col2">
-                            <input type="radio" name="sex" value="남"> 남
-                            <input type="radio" name="sex" value="여"> 여
+                            <input type="radio" id = "man" name="sex" value="남"> 남
+                            <input type="radio" id = "woman" name="sex" value="여"> 여
                         </div>
                     </div>
 			       	<div class="clear"></div>

@@ -62,7 +62,7 @@
 
             echo("
               <script>
-                location.href = 'index.php';
+                location.href = 'class_index.php';
               </script>
             ");
         }
