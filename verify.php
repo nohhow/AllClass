@@ -15,7 +15,7 @@
     <div id="wrap">
         <!-- start PHP code -->
         <?php
-            $con =mysqli_connect("localhost", "user1", "12345", "all_class"); // Connect to database server(localhost) with username and password.
+            $con = mysqli_connect("localhost", "user1", "12345", "all_class"); // Connect to database server(localhost) with username and password.
             
             if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
                 // Verify data

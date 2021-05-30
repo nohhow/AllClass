@@ -26,6 +26,9 @@ a:active { text-decoration:none; color: #222222; }
 #main_img {height : 200px; text-align: center; background-color:#fbccd1;}
 #main_img_bar {height: 760px; text-align: center; background-color: #fbccd1; }
 #main_img_bar img { margin-top: 30px; margin-bottom: 30px}
+/* 클래스 메인 이미지 */
+#class_main {height: 560px; text-align: center; background-color: #fbccd1; padding-top: 100px; padding-bottom : 100px}
+
 /* 하단 푸터 */
 footer { height: 100px; background-color: white; }
 #footer_content { position: relative; width: 1000px; margin: 0 auto; color: black; }
