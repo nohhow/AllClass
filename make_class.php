@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php session_start();
+    if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
+    else $userid = "";
+?>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -6,6 +9,40 @@
 <title>모두의 클래스</title>
 <link rel="stylesheet" type="text/css" href="./css/common.css">
 <link rel="stylesheet" type="text/css" href="./css/class_main.css">
+
+<script>
+function check_input()
+   {
+    var userid = '<?php echo $userid;?>';
+   
+    if(userid == ""){
+            location.href = 'login_form.php';
+            alert('로그인 후 이용해주세요.');
+            return;
+    }
+
+      if (!document.class_form.name.value) {
+          alert("클래스명을 입력하세요!");    
+          document.class_form.name.focus();
+          return;
+      }
+
+      if (!document.class_form.info.value) {
+          alert("부제(상세설명)를 입력하세요!");    
+          document.class_form.info.focus();
+          return;
+      }
+      document.class_form.submit();
+   }
+
+   function reset_form() {
+      document.class_form.name.value = "";  
+      document.class_form.info.value = "";
+      document.class_form.name.focus();
+      return;
+   }
+</script>
+
 </head>
 <body> 
 	<header>
@@ -28,7 +65,7 @@
 			       	<div class="clear"></div>
 
 			       	<div class="form">
-				        <div class="col1">부제</div>
+				        <div class="col1">부제(추가설명)</div>
 				        <div class="col2">
                             <input type="text" name="info" id = "info_text">
 				        </div>                 
