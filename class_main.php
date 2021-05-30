@@ -7,16 +7,17 @@
 
     <div>
         <button id = "class_btn" onclick="access()">클래스 만들기</button>
-        <script> // 로그인 되어있을 시에는 class_index.php가 보여짐
+        <script> // 로그인 안되어있으면 login_form.php가 보여짐
                     
                 function access(){
                     var userid = '<?php echo $userid;?>';
                     
                     if(userid == ""){
                         alert("로그인 후 이용해주세요.");
+                        location.href='login_form.php';
                     }
                     else{
-                        location.href='make_class.php';ㄴ
+                        location.href='class_form.php';
                     }
                 }
         </script>
