@@ -12,7 +12,7 @@
             <h3>
                 <a id = "title" href="index.php">모두의 클래스</a>
                 
-                <script>
+                <script> // 로그인 되어있을 시에는 class_index.php가 보여짐
                     var userid = '<?php echo $userid;?>';
                     
                     if(userid == ""){

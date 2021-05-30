@@ -1,7 +1,7 @@
 <div id="class_main">
 
     <div>
-        <button id = "class_btn">클래스 생성하기</button>
+        <button id = "class_btn" onclick="location.href='make_class.php'">클래스 만들기</button>
     </div>
 
     <br>
@@ -13,4 +13,5 @@
          <li>클래스3</li>
     </ul>
     </div>
+
 </div>
