@@ -13,13 +13,16 @@
 
     $sql = "insert into classes (class_name, class_info, class_code, creator) ";
     $sql .= "values('$class_name', '$class_info', '$class_code', '$creator')";
-   
-    $sql2 = "select * from classes where class_code='$class_code'";
-    $result = mysqli_query($con, $sql2);
+
+    $sql2 = "insert into mem_class (class_code, mem_id, role)";
+    $sql2 .= "values('$class_code', '$userid', 'T')";
+
+    $sql3 = "select * from classes where class_code='$class_code'";
+    $result = mysqli_query($con, $sql3);
 
     $num_record = mysqli_num_rows($result);
 
-    mysqli_query($con, $sql2);  // $sql 에 저장된 명령 실행
+    mysqli_query($con, $sql3);  // $sql 에 저장된 명령 실행
 
     if ($num_record)
     {
@@ -32,7 +35,9 @@
     }
     else
     {
-        mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
+        mysqli_query($con, $sql);  // classes 테이블 Insert
+        mysqli_query($con, $sql2); // mem_class 테이블 Insert
+
         mysqli_close($con);     
 
         echo "
