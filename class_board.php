@@ -5,6 +5,7 @@
         $class_name = $_GET['class_name'];
         $class_info = $_GET['class_info'];
         $class_code = $_GET['class_code'];
+        $where = $_GET['w'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,17 @@
                     ?>
                 </div>
                 <div id="content">
-                    <?php include "notice_board.php";?>
+                    <?php 
+                        if($where == 'free'){
+                            include "free_board.php";
+                        }
+                        elseif($where == 'qna'){
+                            include "qna_board.php";
+                        }
+                        elseif($where == 'assg'){
+                            include "assg_board.php";
+                        }
+                    ?>
                 </div>
                 <div id="sidebar">
                     <ul>

@@ -1,0 +1,42 @@
+  /* 레이아웃 설정 */
+  #container {
+    width: 960px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #bcbcbc;
+  }
+  #header {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #bcbcbc;
+  }
+  #content {
+    width: 720px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: right;
+    border: 1px solid #bcbcbc;
+  }
+  #sidebar {
+    width: 150px;
+    padding: 40px 20px 20px 0;
+    margin-bottom: 20px;
+    float: left;
+    border: 1px solid #bcbcbc;
+  }
+
+  #sidebar ul {text-align: center; }
+  #sidebar li {margin-bottom: 20px;}
+  
+  #footer {
+    clear: both;
+  }
+
+/* main */
+
+#subTitle {
+    color: silver;
+}
+#invite{
+    text-align: right;
+}
