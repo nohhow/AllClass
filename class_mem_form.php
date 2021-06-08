@@ -17,9 +17,9 @@ function check_input()
     var userid = '<?php echo $userid;?>';
    
     if(userid == ""){
-            location.href = 'login_form.php';
-            alert('로그인 후 이용해주세요.');
-            return;
+        location.href = 'login_form.php';
+        alert('로그인 후 이용해주세요.');
+        return;
     }
 
       if (!document.class_mem_form.code.value) {
@@ -35,6 +35,7 @@ function check_input()
       document.class_mem_form.code.focus();
       return;
    }
+
 </script>
 
 </head>

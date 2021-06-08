@@ -10,7 +10,7 @@
     $sql = "insert into mem_class (class_code, mem_id, role)";
     $sql .= "values('$class_code', '$userid', 'S')";
 
-    $sql2 = "select * from mem_class where class_code='$userid'";
+    $sql2 = "select * from mem_class where class_code='$class_code' and mem_id = '$userid'";
     $result = mysqli_query($con, $sql2);
 
     $num_record = mysqli_num_rows($result);
