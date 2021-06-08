@@ -1,0 +1,289 @@
+  /*버튼 CSS*/
+
+  #class_btn{
+    background:#F69B94;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  #class_btn:hover{
+    background:#fff;
+    color:#F69B94;
+  }
+  #class_btn:before,#class_btn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #F69B94;
+    transition:400ms ease all;
+  }
+  #class_btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  #class_btn:hover:before,#class_btn:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
+  /* 코드 출처 : https://nanati.me/css-button-design/ */
+
+/* 가입 양식 폼 */
+#join_box {	width: 600px;	margin: 0 auto; }
+#join_box h2 { 	border-bottom: solid 2px #dea5a4; padding-top: 50px; }
+#join_box .col1 { float: left;	width: 110px; margin-top: 4px; }
+#join_box .col2 { float: left;	width: 400px;}
+#join_box .col3 { float: left; }
+#join_box .form input { width: 390px;	height: 22px; }
+#join_box .form input[name=sex] {width: 22px; height: 22px; vertical-align: -5px;}
+#join_box .form { height: 38px; }
+#join_box .name { margin-top: 20px; }
+#join_box .code { margin-top: 20px; }
+#join_box input[name=email1] { width: 100px; }
+#join_box input[name=email2] { width: 275px; }
+#join_box .bottom_line { margin-top: 10px;	border-bottom: solid 1px #dea5a4; }
+#join_box .buttons { text-align: right;	margin: 20px 100px 0 0; }
+
+
+/* 카드 리스트 - 수정함(주석처리만 함) 
+
+.col-xl-3 {
+    flex: 0 0 auto;
+    width: 25%;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+  }
+  .card > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .card > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+  }
+  .card > .list-group:first-child {
+    border-top-width: 0;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+  .card > .list-group:last-child {
+    border-bottom-width: 0;
+    border-bottom-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+  }
+  .card > .card-header + .list-group,
+  .card > .list-group + .card-footer {
+    border-top: 0;
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-subtitle {
+    margin-top: -0.25rem;
+    margin-bottom: 0;
+  }
+  
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+  
+  .card-link:hover {
+    text-decoration: none;
+  }
+  .card-link + .card-link {
+    margin-left: 1rem;
+  }
+  
+  .card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+  }
+  
+  .card-footer {
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .card-footer:last-child {
+    border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+  }
+  
+  .card-header-tabs {
+    margin-right: -0.5rem;
+    margin-bottom: -0.5rem;
+    margin-left: -0.5rem;
+    border-bottom: 0;
+  }
+  
+  .card-header-pills {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+  }
+  
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    border-radius: calc(0.25rem - 1px);
+  }
+  
+  .card-img,
+  .card-img-top,
+  .card-img-bottom {
+    width: 100%;
+  }
+  
+  .card-img,
+  .card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+  
+  .card-img,
+  .card-img-bottom {
+    border-bottom-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+  }
+  
+  .card-group > .card {
+    margin-bottom: 0.75rem;
+  }
+  @media (min-width: 576px) {
+    .card-group {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    .card-group > .card {
+      flex: 1 0 0%;
+      margin-bottom: 0;
+    }
+    .card-group > .card + .card {
+      margin-left: 0;
+      border-left: 0;
+    }
+    .card-group > .card:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .card-group > .card:not(:last-child) .card-img-top,
+  .card-group > .card:not(:last-child) .card-header {
+      border-top-right-radius: 0;
+    }
+    .card-group > .card:not(:last-child) .card-img-bottom,
+  .card-group > .card:not(:last-child) .card-footer {
+      border-bottom-right-radius: 0;
+    }
+    .card-group > .card:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .card-group > .card:not(:first-child) .card-img-top,
+  .card-group > .card:not(:first-child) .card-header {
+      border-top-left-radius: 0;
+    }
+    .card-group > .card:not(:first-child) .card-img-bottom,
+  .card-group > .card:not(:first-child) .card-footer {
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .bg-warning {
+    background-color: #ffc107 !important;
+  }
+
+  .text-white {
+    color: #fff !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .d-flex {
+    display: flex !important;
+  }
+
+  .align-items-center {
+    align-items: center !important;
+  }
+  
+
+  .justify-content-between {
+    justify-content: space-between !important;
+  }
+
+  small, .small {
+    font-size: 0.875em;
+  }
+
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+  }
+
+  .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
+  }
+  .row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) / 2);
+    padding-left: calc(var(--bs-gutter-x) / 2);
+    margin-top: var(--bs-gutter-y);
+  }
+
+  */
