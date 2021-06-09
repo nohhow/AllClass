@@ -13,8 +13,8 @@ else $username = "";
 
     ?>
         <a class="navbar-brand ps-3" href="index.php">모두의 클래스</a>
-        <a style="color: white;" class="ms-auto me-md-3 my-2 my-md-0" href="login_form.php">로그인(12장)</a>
-        <a style="color: white;" class="btn-sm me-4 me-lg-0" href="member_form.php">회원 가입(11장)</a>
+        <a style="color: white;" class="ms-auto me-md-3 my-2 my-md-0" href="login_form.php">로그인</a>
+        <a style="color: white; padding-right : 3rem;" class="me-4 me-lg-0" href="member_form.php">회원 가입</a>
     <?php
     } else {
     ?>

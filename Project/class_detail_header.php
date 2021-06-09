@@ -22,7 +22,7 @@ else $username = "";
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="logout.php">로그 아웃</a></li>
+                <li><a class="dropdown-item" href="logout.php">로그아웃</a></li>
             </ul>
         </li>
     </ul>

@@ -48,7 +48,15 @@
     scroll-behavior: smooth;
   }
 }
+a { display: inline-block; text-decoration: none; }
+a:link { text-decoration:none;}
+a:hover { text-decoration:none;}
+a:visited { text-decoration:none;}
+a:active { text-decoration:none;}
 
+main {
+  padding : 3rem;
+}
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -56,9 +64,13 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: pink;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+section{
+  overflow : scroll;
 }
 
 hr {
@@ -147,6 +159,7 @@ address {
 ol,
 ul {
   padding-left: 2rem;
+  list-style-type: none;
 }
 
 ol,
@@ -10877,8 +10890,14 @@ body {
   z-index: 1038;
   transform: translateX(-225px);
 }
+#layoutSidenav #layoutSidenav_nav_ver2 {
+  flex-basis: 0px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease-in-out;
+  z-index: 1038;
+  transform: translateX(0);
+}
 #layoutSidenav #layoutSidenav_content {
-  /*background-color: pink;*/
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10887,6 +10906,17 @@ body {
   flex-grow: 1;
   min-height: calc(100vh - 56px);
   margin-left: -225px;
+}
+#layoutSidenav #layoutSidenav_content_ver2 {
+  /*background-color: pink;*/
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  flex-grow: 1;
+  min-height: calc(100vh - 56px);
+  margin-left: 0px;
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
@@ -10906,7 +10936,7 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* @media (min-width: 992px) {
+@media (min-width: 992px) {
   #layoutSidenav #layoutSidenav_nav {
     transform: translateX(0);
   }
@@ -10924,7 +10954,7 @@ body {
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     display: none;
   }
-} */
+}
 .sb-nav-fixed .sb-topnav {
   z-index: 1039;
 }
@@ -10972,7 +11002,7 @@ body {
   z-index: 1039;
 }
 .sb-topnav .navbar-brand { 
-  /*width: 225px;*/
+  width: 225px;
   margin: 0;
 }
 .sb-topnav.navbar-dark #sidebarToggle {

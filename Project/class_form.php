@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,36 +22,42 @@
         <?php include "class_header.php"; ?>
     </header>
     <section>
-        <div id="main_content">
-            <div id="join_box">
-                <form name="class_form" method="post" action="class_insert.php">
-                    <h2>클래스 만들기</h2>
-                    <div class="form name">
-                        <div class="col1">클래스명</div>
-                        <div class="col2">
-                            <input type="text" name="name" id="name_text">
-                        </div>
-                    </div>
-                    <div class="clear"></div>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav_ver2">
+            </div>
+            <div id="layoutSidenav_content_ver2">
+                <main>
+                    <div id="join_box">
+                        <form name="class_form" method="post" action="class_insert.php">
+                            <h2>클래스 만들기</h2>
+                            <div class="form name">
+                                <div class="col1">클래스명</div>
+                                <div class="col2">
+                                    <input type="text" name="name" id="name_text">
+                                </div>
+                            </div>
+                            <div class="clear"></div>
 
-                    <div class="form">
-                        <div class="col1">부제(추가설명)</div>
-                        <div class="col2">
-                            <input type="text" name="info" id="info_text">
-                        </div>
-                    </div>
-                    <div class="clear"></div>
+                            <div class="form">
+                                <div class="col1">부제(추가설명)</div>
+                                <div class="col2">
+                                    <input type="text" name="info" id="info_text">
+                                </div>
+                            </div>
+                            <div class="clear"></div>
 
-                    <div class="bottom_line"> </div>
-                    <div class="buttons">
-                        <img style="cursor:pointer" src="./img/save_button.png" onclick="check_input()">&nbsp;
-                        <img id="reset_button" style="cursor:pointer" src="./img/cancel_button.png" onclick="reset_form()">
-                    </div>
-                </form>
-            </div> <!-- join_box -->
-        </div> <!-- main_content -->
+                            <div class="bottom_line"> </div>
+                            <div class="buttons">
+                                <img style="cursor:pointer" src="./img/save_button.png" onclick="check_input()">&nbsp;
+                                <img id="reset_button" style="cursor:pointer" src="./img/cancel_button.png" onclick="reset_form()">
+                            </div>
+                        </form>
+                    </div> <!-- join_box -->
+                </main> <!-- main_content -->
+            </div>
+        </div>
     </section>
-    <footer>
+    <footer class="py-4 bg-light mt-auto">
         <?php include "footer.php"; ?>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -1,7 +1,9 @@
 <div id="layoutSidenav">
-    <div id="layoutSidenav_content">
+    <div id="layoutSidenav_nav_ver2">
+    </div>
+    <div id="layoutSidenav_content_ver2">
         <main>
-            <div id="class_main">
+         <div class = "row">
                 <div>
                     <button id="class_btn" onclick="access1()">CREATE</button>
                     <script>
@@ -35,7 +37,7 @@
                         }
                     </script>
                 </div>
-
+        </div>
                 <br>
 
                 <?php
@@ -62,7 +64,6 @@
                 }
                 echo '</div>';
                 ?>
-            </div>
-        </main>
+        <main>
     </div>
 </div>
