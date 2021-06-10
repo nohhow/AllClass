@@ -1,6 +1,3 @@
-/* 메인 콘텐트 */
-#main_content { position: relative; width: 1000px; height: 500px; margin: 0 auto; }
-
 /* 가입 양식 폼 */
 #join_box {	width: 600px;	margin: 0 auto; }
 #join_box h2 { 	border-bottom: solid 2px #dea5a4; padding-top: 50px; }

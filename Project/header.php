@@ -14,7 +14,7 @@ else $username = "";
     ?>
         <a class="navbar-brand ps-3" href="index.php">모두의 클래스</a>
         <a style="color: white;" class="ms-auto me-md-3 my-2 my-md-0" href="login_form.php">로그인</a>
-        <a style="color: white; padding-right : 3rem;" class="me-4 me-lg-0" href="member_form.php">회원 가입</a>
+        <a style="color: white; padding-right : 3rem;" class="me-4 me-lg-0" href="member_form.php">회원가입</a>
     <?php
     } else {
     ?>
@@ -24,11 +24,11 @@ else $username = "";
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li class="dropdown-item"><?= $userid . "(" . $username . ")님" ?></li>
-                    <li><a class="dropdown-item" href="member_modify_form.php">정보 수정</a></li>
+                    <li><a class="dropdown-item" href="member_modify_form.php">정보수정</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="logout.php">로그 아웃</a></li>
+                    <li><a class="dropdown-item" href="logout.php">로그아웃</a></li>
                 </ul>
             </li>
         </ul>

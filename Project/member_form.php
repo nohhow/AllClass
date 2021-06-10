@@ -6,13 +6,11 @@
 <head>
     <meta charset="utf-8">
     <title>모두의 클래스</title>
-    <link rel="stylesheet" type="text/css" href="./css/common.css">
-    <link rel="stylesheet" type="text/css" href="./css/login.css">
     <script type="text/javascript" src="./js/login.js"></script>    
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./css/common.css">
-    <link rel="stylesheet" type="text/css" href="./css/member.css">
+    <link rel="stylesheet" type="text/css" href="./css/common.css?after"/>
+    <link rel="stylesheet" type="text/css" href="./css/member.css?after"/>
     <script>
         function check_input() {
             if (!document.member_form.id.value) {
@@ -110,10 +108,10 @@
 </head>
 
 <body>
+    <header>
+        <?php include "header.php"; ?>
+    </header>
     <section>
-        <div id="main_img">
-            <img src="./img/main_banner.png">
-        </div>
         <div id="main_content">
             <div id="join_box">
                 <form name="member_form" method="post" action="member_insert.php">

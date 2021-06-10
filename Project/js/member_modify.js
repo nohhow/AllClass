@@ -21,24 +21,10 @@ function check_input()
        return;
    }
 
-   if (!document.member_form.email1.value)
-   {
-       alert("이메일 주소를 입력하세요!");    
-       document.member_form.email1.focus();
-       return;
-   }
-
-   if (!document.member_form.email2.value)
-   {
-       alert("이메일 주소를 입력하세요!");    
-       document.member_form.email2.focus();
-       return;
-   }
-
    if (!document.member_form.sex.value) {
-     alert("성별을 선택해주세요!");    
-     document.member_form.sex.focus();
-     return;
+        alert("성별을 선택해주세요!");    
+        document.member_form.sex.focus();
+        return;
    }
 
    if (document.member_form.pass.value != 
@@ -66,8 +52,6 @@ function reset_form()
    document.member_form.pass.value = "";
    document.member_form.pass_confirm.value = "";
    document.member_form.name.value = "";
-   document.member_form.email1.value = "";
-   document.member_form.email2.value = "";
    document.getElementById("man").checked = false;
    document.getElementById("woman").checked = false;
    document.member_form.birth.value = "";     

@@ -1,0 +1,19 @@
+#main_button {
+    font-size : 2rem;
+    height: 5rem;
+    width: 40rem;
+    color: white;
+    background: #df7cb2;
+    border: 1px #d197dd solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+#main_button:hover {
+    border: 1px #951399 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #d775eb;
+}
+
+#main_button:active {
+    box-shadow: inset 0 2px 5px #e458d1;   
+}

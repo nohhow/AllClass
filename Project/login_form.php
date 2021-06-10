@@ -1,19 +1,22 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head> 
 <meta charset="utf-8">
 <title>모두의 클래스</title>
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/login.css">
+<link rel="stylesheet" type="text/css" href="./css/common.css?after">
+<link rel="stylesheet" type="text/css" href="./css/login.css?after">
 <script type="text/javascript" src="./js/login.js"></script>
-<link href="css/styles.css" rel="stylesheet" />
+<link href="css/styles.css?after" rel="stylesheet" />
 
 </head>
-<body> 
+<body>
+	<header>
+		<?php include "header.php"; ?>
+	</header>
 	<section>
-		<div id="main_img">
-            <img src="./img/main_banner.png">
-        </div>
         <div id="main_content">
       		<div id="login_box">
 	    		<div id="login_title">
@@ -33,7 +36,7 @@
     		</div> <!-- login_box -->
         </div> <!-- main_content -->
 	</section> 
-	<footer>
+	<footer class="py-4 bg-light mt-auto">
     	<?php include "footer.php";?>
     </footer>
 </body>

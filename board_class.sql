@@ -1,4 +1,4 @@
-create table board_class (
+create table free_board_class (
    num int not null auto_increment,
    id char(15) not null,
    name char(10) not null,

@@ -11,10 +11,10 @@ session_start();
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<title>모두의 클래스</title>
-	<link href="css/styles.css" rel="stylesheet" />
+	<link href="css/styles.css?after" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="./css/common.css">
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css?after">
 </head>
 
 <body>

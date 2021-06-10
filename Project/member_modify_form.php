@@ -15,7 +15,7 @@ session_start();
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./css/class_main.css">
-    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link rel="stylesheet" type="text/css" href="./css/common.css?after">
     <script type="text/javascript" src="./js/member_modify.js"></script>
 </head>
 
@@ -43,9 +43,6 @@ session_start();
 
 
     <section>
-        <div id="main_img">
-            <img src="./img/main_banner.png">
-        </div>
         <div id="main_content">
             <div id="join_box">
                 <form name="member_form" method="post" action="member_modify.php?id=<?= $userid ?>">
@@ -82,7 +79,7 @@ session_start();
                     <div class="form email">
                         <div class="col1">이메일</div>
                         <div class="col2">
-                            <input type="text" name="email1" value="<?= $email1 ?>">@<input type="text" name="email2" value="<?= $email2 ?>">
+                            <?= $email1 ?>@<?= $email2?>
                         </div>
                     </div>
                     <div class="clear"></div>

@@ -13,11 +13,11 @@ else $username = "";
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li class="dropdown-item"><?= $userid . "(" . $username . ")님" ?></li>
-                <li><a class="dropdown-item" href="member_modify_form.php">정보 수정</a></li>
+                <li><a class="dropdown-item" href="member_modify_form.php">정보수정</a></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="logout.php">로그 아웃</a></li>
+                <li><a class="dropdown-item" href="logout.php">로그아웃</a></li>
             </ul>
         </li>
     </ul>
