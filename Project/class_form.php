@@ -14,7 +14,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./css/common.css">
-    <link rel="stylesheet" type="text/css" href="./css/class_main.css">
+    <link rel="stylesheet" type="text/css" href="./css/class_main.css?after">
 </head>
 
 <body class="sb-nav-fixed">
@@ -22,10 +22,10 @@
         <?php include "class_header.php"; ?>
     </header>
     <section>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav_ver2">
-            </div>
-            <div id="layoutSidenav_content_ver2">
+        <div id="main_content">
+            <!-- <div id="layoutSidenav_nav_ver2">
+            </div> -->
+            <!-- <div id="layoutSidenav_content_ver2"> -->
                 <main>
                     <div id="join_box">
                         <form name="class_form" method="post" action="class_insert.php">
@@ -54,7 +54,7 @@
                         </form>
                     </div> <!-- join_box -->
                 </main> <!-- main_content -->
-            </div>
+            <!-- </div> -->
         </div>
     </section>
     <footer class="py-4 bg-light mt-auto">
