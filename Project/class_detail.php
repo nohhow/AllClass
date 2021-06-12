@@ -91,7 +91,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                 </div>
                             </div>
                             <!-- 사용자의 role에 따라서 보여지는 버튼 (T의 역할을 가진 사용자만 공지사항 등록 버튼이 보임) -->
-                            <button id = "add_notice">등록하기</button>
+                            <button id = "add_notice" onclick = "regist()">등록하기</button>
                             <?php
                                 $con = mysqli_connect("localhost", "user1", "12345", "all_class");
 
@@ -107,6 +107,14 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                 var role = '<?php echo $role; ?>';
                                 if(role == 'S'){
                                     document.getElementById("add_notice").style.display = 'none';
+                                }
+
+                                function regist(){
+                                    var class_code = '<?php echo $class_code; ?>';
+
+                                    window.open("notice_form.php?class_code=" + class_code,
+                                    "NOTICEregist",
+                                    "left=700,top=100,width=650,height=800,scrollbars=no,resizable=yes");
                                 }
                             </script>
                         </div>
