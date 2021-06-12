@@ -7,6 +7,9 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
     $class_info = $_GET['class_info'];
     $class_code = $_GET['class_code'];
     $where = $_GET['w'];
+
+    if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
+    else $userid = "";
 ?>
 
     <!DOCTYPE html>
@@ -65,20 +68,20 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             ?>
                             <ol class="breadcrumb mb-4">
                                 <?php
-                                echo '<li class=" active">' .$class_info. "</li><div id='invite'>&nbsp| 초대코드 : " . $class_code . "</div>";
+                                echo '<li class="active">' .$class_info. "</li><div id='invite'>&nbsp| 초대코드 : " . $class_code . "</div>";
                                 ?>
                             </ol>
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <?php
                                     if ($where == 'free') {
-                                        echo '<i class="fas fa-table me-1"></i>자유 게시판';
+                                        echo '<i class="fas fa-table me-1"></i>자유게시판';
                                         include "free_board.php";
                                     } elseif ($where == 'qna') {
-                                        echo '<i class="fas fa-table me-1"></i>질문 게시판';
+                                        echo '<i class="fas fa-table me-1"></i>질문게시판';
                                         include "qna_board.php";
                                     } elseif ($where == 'assg') {
-                                        echo '<i class="fas fa-table me-1"></i>과제 게시판';
+                                        echo '<i class="fas fa-table me-1"></i>과제게시판';
                                         include "assg_board.php";
                                     } elseif ($where == 'notice') {
                                         echo '<i class="fas fa-table me-1"></i>공지사항';
@@ -87,6 +90,25 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                     ?>
                                 </div>
                             </div>
+                            <!-- 사용자의 role에 따라서 보여지는 버튼 (T의 역할을 가진 사용자만 공지사항 등록 버튼이 보임) -->
+                            <button id = "add_notice">등록하기</button>
+                            <?php
+                                $con = mysqli_connect("localhost", "user1", "12345", "all_class");
+
+                                $sql = "select role from mem_class where class_code='$class_code' and mem_id = '$userid'";
+                                $result = mysqli_query($con, $sql);
+                                $row = mysqli_fetch_array($result);
+                                $role = $row[0];
+                                
+                                mysqli_close($con);
+
+                            ?>
+                            <script>
+                                var role = '<?php echo $role; ?>';
+                                if(role == 'S'){
+                                    document.getElementById("add_notice").style.display = 'none';
+                                }
+                            </script>
                         </div>
                     </main>
                 </div>

@@ -20,7 +20,7 @@
         <div id="main_content">
       		<div id="login_box">
 	    		<div id="login_title">
-		    		<span>로그인</span>
+		    		<h2>로그인</h2>
 	    		</div>
 	    		<div id="login_form">
           		<form  name="login_form" method="post" action="login.php">		       	
