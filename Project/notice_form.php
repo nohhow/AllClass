@@ -40,10 +40,13 @@
     else{
 ?>
     <h3>공지사항 등록하기</h3>
-    <form name="notice_form" method="post" action="notice_insert.php?class_code=<?=$class_code?>">
+    <form name="notice_form" method="post" action="notice_insert.php?class_code=<?=$class_code?>" enctype="multipart/form-data">
       <p><span>제목 </span><input type ="text" class = "box" name = "title"/>
       <div>내용</div>
       <p><textarea name = "content" cols="65" rows="25"></textarea></p>
+      <p><span>이미지 첨부</span><br/><input type="file" accept= "image/*" name="image"></p>
+      <p><span>이미지 첨부 위치</span><br/><input type="radio" id="up" name="position" value="0">본문 위쪽</input><input type="radio" id="down" name="position" value="1">본문 아래쪽</input></p>
+      <br/>
       <p><input type="submit" value="Submit"><input type="button" value="Close" onclick="javascript:self.close()"></p>
     </form>
 <?php

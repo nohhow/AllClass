@@ -68,23 +68,23 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             ?>
                             <ol class="breadcrumb mb-4">
                                 <?php
-                                echo '<li class="active">' .$class_info. "</li><div id='invite'>&nbsp| 초대코드 : " . $class_code . "</div>";
+                                echo '<li class="active">' .$class_info. "</li><div id='invite'>&nbsp| 초대코드 : <span style = 'color : #FF3399'>".$class_code."</span></div>";
                                 ?>
                             </ol>
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <?php
                                     if ($where == 'free') {
-                                        echo '<i class="fas fa-table me-1"></i>자유게시판';
+                                        echo '<i class="fas fa-table me-1"></i>자유게시판</div><div class="card-body">';
                                         include "free_board.php";
                                     } elseif ($where == 'qna') {
-                                        echo '<i class="fas fa-table me-1"></i>질문게시판';
+                                        echo '<i class="fas fa-table me-1"></i>질문게시판</div><div class="card-body">';
                                         include "qna_board.php";
                                     } elseif ($where == 'assg') {
-                                        echo '<i class="fas fa-table me-1"></i>과제게시판';
+                                        echo '<i class="fas fa-table me-1"></i>과제게시판</div><div class="card-body">';
                                         include "assg_board.php";
                                     } elseif ($where == 'notice') {
-                                        echo '<i class="fas fa-table me-1"></i>공지사항';
+                                        echo '<i class="fas fa-table me-1"></i>공지사항</div><div class="card-body">';
                                         include "notice_board.php";
                                     }
                                     ?>
@@ -105,16 +105,18 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             ?>
                             <script>
                                 var role = '<?php echo $role; ?>';
-                                if(role == 'S'){
+                                var where = '<?php echo $where; ?>';
+                                if (role == 'S' && where == "notice") {
                                     document.getElementById("add_notice").style.display = 'none';
                                 }
 
-                                function regist(){
+                                function regist() {
                                     var class_code = '<?php echo $class_code; ?>';
 
-                                    window.open("notice_form.php?class_code=" + class_code,
-                                    "NOTICEregist",
-                                    "left=700,top=100,width=650,height=800,scrollbars=no,resizable=yes");
+
+                                    window.open(where + "_form.php?class_code=" + class_code,
+                                        "NOTICEregist",
+                                        "left=700,top=100,width=882,height=800,scrollbars=no,resizable=yes");
                                 }
                             </script>
                         </div>
@@ -122,9 +124,8 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                 </div>
             </div>
         </section>
-        <footer class="py-4 bg-light mt-auto">
-            <?php include "footer.php"; ?>
-        </footer>
+        <!-- <footer class="py-4 bg-light mt-auto">
+        </footer> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>
