@@ -52,11 +52,11 @@
                     $class_result = mysqli_query($con, $sql2);
                     while ($class_list = mysqli_fetch_array($class_result)) {
                         echo '<div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4">
+                                    <div class="card bg-white text-body mb-4">
                                         <div class="card-body">' . $class_list['class_name'] . '</div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="class_detail.php?w=notice&class_name=' . $class_list['class_name'] . '&class_info=' . $class_list['class_info'] . '&class_code=' . $class_list['class_code'] . '">View details</a>
-                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                            <a class="small text-body stretched-link" href="class_detail.php?w=notice&class_name=' . $class_list['class_name'] . '&class_info=' . $class_list['class_info'] . '&class_code=' . $class_list['class_code'] . '">'.$class_list['class_info'].'</a>
+                                            <div class="small text-body"><i class="fas fa-angle-right"></i></div>
                                         </div>
                                     </div>
                                  </div>';

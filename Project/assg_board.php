@@ -1,5 +1,5 @@
 <div>
-    <h1>과제게시판</h1>
+    <h2>과제게시판</h2>
 </div>
 
 <?php
@@ -12,10 +12,11 @@
     $result = mysqli_query($con, $sql) or die;
 
     $timenow = date("Y-m-d H:i"); 
-    echo "$timenow";
+    echo "현재 시간 : $timenow";
+
     $timetarget = "2017-03-15 00:00";
         
-    echo '<div>';
+    echo '<div style = "padding-top : 30px">';
 
     while ($list = mysqli_fetch_array($result)) {
         $timetarget = $list['deadline'];
@@ -24,7 +25,7 @@
         $str_target = strtotime($timetarget);
 
         if($str_now < $str_target){
-            echo '<div class="col-xl-3 col-md-6">
+            echo '<div class="col-xl-12 col-md-6">
             
             <div class="card bg-white text-body mb-4">
                 <div class="card-body">' .$list['title']. '</div>
@@ -35,13 +36,13 @@
             </div>
             </div>';
         } else{
-            echo '<div class="col-xl-3 col-md-6">
+            echo '<div class="col-xl-12 col-md-6">
             
             <div class="card bg-secondary text-black-50 mb-4">
                 <div class="card-body">' .$list['title']. '</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <span class="small text-black-50">마감된 과제입니다.</span>
-                    <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
+                    <div class="small text-black-50"></div>
                 </div>
             </div>
             </div>';

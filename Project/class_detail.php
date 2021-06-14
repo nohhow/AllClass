@@ -106,7 +106,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             <script>
                                 var role = '<?php echo $role; ?>';
                                 var where = '<?php echo $where; ?>';
-                                if (role == 'S' && where == "notice") {
+                                if (role == 'S' && where == "notice" || where == "assg") {
                                     document.getElementById("add_notice").style.display = 'none';
                                 }
 
