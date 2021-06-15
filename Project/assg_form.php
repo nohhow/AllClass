@@ -53,7 +53,7 @@ date_default_timezone_set("Asia/Seoul");
       <p><input type="submit" value="Submit"><input type="button" value="Close" onclick="javascript:self.close()"></p>
     </form>
 
-<!-- date form에 현재 날짜로 미리 세팅 -->
+<!-- date form에 현재 날짜로 미리 세팅 (시간은 편의상 오후 12시로 고정) -->
     <script>
          document.getElementById('set_date').value = new Date().toISOString().substring(0, 10);
     </script> 

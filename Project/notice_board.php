@@ -31,6 +31,7 @@
     if(!$num_record){
         echo"<br/><h1>{$_GET['class_name']}에 오신 것을 환영합니다.</h1></br>";
     }else{
+        // 사진 등록시 Position 설정에 따른 배치 차이
         if($img_position == 0){
             echo"
             <div>

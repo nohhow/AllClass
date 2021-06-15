@@ -106,7 +106,8 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             <script>
                                 var role = '<?php echo $role; ?>';
                                 var where = '<?php echo $where; ?>';
-                                if (role == 'S' && where == "notice" || where == "assg") {
+                                // notice_board와 assg_board에서는 교수자만 등록할 수 있도록 제한
+                                if (role == 'S' && (where == "notice" || where == "assg")) {
                                     document.getElementById("add_notice").style.display = 'none';
                                 }
 

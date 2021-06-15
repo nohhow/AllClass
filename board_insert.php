@@ -34,7 +34,8 @@
 	$upfile_type     = $_FILES["upfile"]["type"];
 	$upfile_size     = $_FILES["upfile"]["size"];
 	$upfile_error    = $_FILES["upfile"]["error"];
-
+	error_reporting(E_ALL);
+    ini_set('display_errors', 1);   
 	if ($upfile_name && !$upfile_error)
 	{
 		$file = explode(".", $upfile_name);
