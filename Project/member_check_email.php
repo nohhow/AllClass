@@ -59,7 +59,7 @@ else{
         
         $headers = 'From:noreply@allclass.com' . "\r\n"; // Set from headers
         
-            mail($to, $subject, $message, $headers); // Send our email   
+        mail($to, $subject, $message, $headers); // Send our email   
     }
 }
 

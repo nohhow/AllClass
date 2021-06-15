@@ -40,21 +40,26 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">공지사항</div>
                                 <a class="nav-link" href="class_detail.php?w=notice&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
                                     공지사항
                                 </a>
                                 <div class="sb-sidenav-menu-heading">게시판</div>
                                 <a class="nav-link collapsed" href="class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     자유게시판
                                 </a>
                                 <a class="nav-link collapsed" href="class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
                                     질문게시판
                                 </a>
                                 <a class="nav-link collapsed" href="class_detail.php?w=assg&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-marker"></i></div>
                                     과제게시판
+                                </a>
+                                <div class="sb-sidenav-menu-heading">연락하기</div>
+                                <a class="nav-link" href="class_detail.php?w=mail&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                                    메일 보내기
                                 </a>
                             </div>
                         </div>
@@ -78,14 +83,17 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                         echo '<i class="fas fa-table me-1"></i>자유게시판</div><div class="card-body">';
                                         include "free_board.php";
                                     } elseif ($where == 'qna') {
-                                        echo '<i class="fas fa-table me-1"></i>질문게시판</div><div class="card-body">';
+                                        echo '<i class="fas fa-question me-1"></i>질문게시판</div><div class="card-body">';
                                         include "qna_board.php";
                                     } elseif ($where == 'assg') {
-                                        echo '<i class="fas fa-table me-1"></i>과제게시판</div><div class="card-body">';
+                                        echo '<i class="fas fa-marker me-1"></i>과제게시판</div><div class="card-body">';
                                         include "assg_board.php";
                                     } elseif ($where == 'notice') {
-                                        echo '<i class="fas fa-table me-1"></i>공지사항</div><div class="card-body">';
+                                        echo '<i class="fas fa-check me-1"></i>공지사항</div><div class="card-body">';
                                         include "notice_board.php";
+                                    } elseif ($where == 'mail'){
+                                        echo '<i class="fas fa-envelope me-1"></i>메일 보내기</div><div class="card-body">';
+                                        include "mail_board.php";
                                     }
                                     ?>
                                 </div>
@@ -107,7 +115,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                 var role = '<?php echo $role; ?>';
                                 var where = '<?php echo $where; ?>';
                                 // notice_board와 assg_board에서는 교수자만 등록할 수 있도록 제한
-                                if (role == 'S' && (where == "notice" || where == "assg")) {
+                                if (role == 'S' && (where == "notice" || where == "assg") || where == "mail") {
                                     document.getElementById("add_notice").style.display = 'none';
                                 }
 
