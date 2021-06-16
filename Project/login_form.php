@@ -26,7 +26,7 @@
           		<form  name="login_form" method="post" action="login.php">		       	
                   	<ul style="padding-left : 0px">
                     <li><input type="text" name="id" placeholder="아이디" ></li>
-                    <li><input type="password" id="pass" name="pass" placeholder="비밀번호" ></li> <!-- pass -->
+                    <li><input type="password" id="pass" name="pass" placeholder="비밀번호" onkeypress="enterkey()"></li> <!-- pass -->
                   	</ul>
                   	<div id="login_btn">
                       	<a href="#"><img src="./img/login_button.png" onclick="check_input()"></a>
@@ -39,5 +39,17 @@
 	<footer class="py-4 bg-light mt-auto">
     	<?php include "footer.php";?>
     </footer>
+	<script>
+		//로그인 화면에서 바로 id 작성 form으로 커서 이동
+		document.login_form.id.focus();
+
+		//enterkey로 로그인 가능하도록 작성
+		function enterkey(){
+			if (window.event.keyCode == 13) {
+				check_input();
+			}
+		}
+
+	</script>
 </body>
 </html>

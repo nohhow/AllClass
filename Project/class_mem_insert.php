@@ -19,7 +19,7 @@
 
     if ($num_record)
     {
-        mysqli_close($con);     
+        mysqli_close($con);
 
         echo "<script>
                 alert('이미 클래스에 가입된 회원입니다.');
@@ -29,7 +29,7 @@
     else
     {
         mysqli_query($con, $sql);  // classes 테이블 Insert
-        mysqli_close($con);   
+        mysqli_close($con);
 
         echo "
         <script>

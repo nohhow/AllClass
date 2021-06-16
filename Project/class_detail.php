@@ -49,7 +49,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                     자유게시판
                                 </a>
                                 <a class="nav-link collapsed" href="class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-question"  style="width:14.39px"></i></div>
                                     질문게시판
                                 </a>
                                 <a class="nav-link collapsed" href="class_detail.php?w=assg&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
