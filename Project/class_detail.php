@@ -56,7 +56,11 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                     <div class="sb-nav-link-icon"><i class="fas fa-marker"></i></div>
                                     과제게시판
                                 </a>
-                                <div class="sb-sidenav-menu-heading">연락하기</div>
+                                <div class="sb-sidenav-menu-heading">사용자</div>
+                                <a class="nav-link" href="class_detail.php?w=users&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    사용자 목록
+                                </a>
                                 <a class="nav-link" href="class_detail.php?w=mail&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
                                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                                     메일 보내기
@@ -94,6 +98,9 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                     } elseif ($where == 'mail'){
                                         echo '<i class="fas fa-envelope me-1"></i>메일 보내기</div><div class="card-body">';
                                         include "mail_board.php";
+                                    } elseif ($where == 'users'){
+                                        echo '<i class="fas fa-user me-1"></i>사용자 목록</div><div class="card-body">';
+                                        include "member_board.php";
                                     }
                                     ?>
                                 </div>
@@ -115,7 +122,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                 var role = '<?php echo $role; ?>';
                                 var where = '<?php echo $where; ?>';
                                 // notice_board와 assg_board에서는 교수자만 등록할 수 있도록 제한
-                                if (role == 'S' && (where == "notice" || where == "assg") || where == "mail") {
+                                if (role == 'S' && (where == "notice" || where == "assg") || where == "mail" || where == "users") {
                                     document.getElementById("add_notice").style.display = 'none';
                                 }
 
