@@ -59,13 +59,13 @@
             echo "제출이 마감되었습니다.<br/><br/>";
         }
 ?>
-<input type= 'button' value ='수정하기' onclick='openView("modify")'/> &nbsp <input type= 'button' value ='제출자 보기' onclick='openView("files")'/>
+<input type= 'button' value ='수정하기' onclick='openView("modify")'/>&nbsp <input type= 'button' value ='제출자 보기' onclick='openView("files")'/>&nbsp
 
 <!-- assg 삭제 form -->
-<form name="delete_assg_form" method="post" action="assg_insert.php?class_code=<?=$class_code?>&assg_num=<?=$assg_num?>">
+<form name="delete_assg_form" method="post" style="display: inline;" action="assg_insert.php?class_code=<?=$class_code?>&assg_num=<?=$assg_num?>">
     <input type="hidden" name="num" value="<?=$assg_num?>">
     <input type="submit" value="삭제">
-</form>
+</form>&nbsp
 
 <div id = 'modify' style = 'display : none'>
     <hr/>
@@ -134,7 +134,7 @@ echo"</div>";
 
 ?>
     <!-- T 교수자 View html 영역 시작 -->
-    <p><input type="button" id = 'closeBtn' value="Close" onclick="javascript:self.close()"></p>
+    <input type="button" id = 'closeBtn' value="Close" onclick="javascript:self.close()">
     <!-- T 교수자 View 끝 -->
 <?php        
     }

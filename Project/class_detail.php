@@ -22,7 +22,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>모두의 클래스</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?after" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="./css/common.css">
         <link rel="stylesheet" type="text/css" href="./css/details.css">
@@ -35,7 +35,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
         <section>
             <div id="layoutSidenav">
                 <div id="layoutSidenav_nav">
-                    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <nav class="sb-sidenav accordion sb-sidenav-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);" id="sidenavAccordion">
                         <div class="sb-sidenav-menu">
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">공지사항</div>
@@ -59,7 +59,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                 <div class="sb-sidenav-menu-heading">사용자</div>
                                 <a class="nav-link" href="class_detail.php?w=users&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
                                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                    사용자 목록
+                                    사용자 명단
                                 </a>
                                 <a class="nav-link" href="class_detail.php?w=mail&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
                                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
@@ -99,7 +99,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                         echo '<i class="fas fa-envelope me-1"></i>메일 보내기</div><div class="card-body">';
                                         include "mail_board.php";
                                     } elseif ($where == 'users'){
-                                        echo '<i class="fas fa-user me-1"></i>사용자 목록</div><div class="card-body">';
+                                        echo '<i class="fas fa-user me-1"></i>사용자 명단</div><div class="card-body">';
                                         include "member_board.php";
                                     }
                                     ?>

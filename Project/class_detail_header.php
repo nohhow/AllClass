@@ -6,7 +6,7 @@ if (isset($_SESSION["username"])) $username = $_SESSION["username"];
 else $username = "";
 ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);">
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-0 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Brand-->

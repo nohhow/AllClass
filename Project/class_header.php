@@ -6,7 +6,7 @@ if (isset($_SESSION["username"])) $username = $_SESSION["username"];
 else $username = "";
 ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);">
     <a class="navbar-brand ps-3" href="class_index.php">모두의 클래스</a>
     <ul class="navbar-nav ms-auto me-md-3 me-3 me-lg-4">
         <li class="nav-item dropdown">

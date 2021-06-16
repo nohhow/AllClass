@@ -5,7 +5,7 @@ else $userid = "";
 if (isset($_SESSION["username"])) $username = $_SESSION["username"];
 else $username = "";
 ?>
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);">
     <!-- Navbar Brand-->
     <?php
     if ($userid == "") {
@@ -13,8 +13,8 @@ else $username = "";
 
     ?>
         <a class="navbar-brand ps-3" href="index.php">모두의 클래스</a>
-        <a style="color: white;" class="ms-auto me-md-3 my-2 my-md-0" href="login_form.php">로그인</a>
-        <a style="color: white; padding-right : 3rem;" class="me-4 me-lg-0" href="member_form.php">회원가입</a>
+        <a style="color: black;" class="ms-auto me-md-3 my-2 my-md-0" href="login_form.php">로그인</a>
+        <a style="color: black; padding-right : 3rem;" class="me-4 me-lg-0" href="member_form.php">회원가입</a>
     <?php
     } else {
     ?>

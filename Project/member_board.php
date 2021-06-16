@@ -26,7 +26,7 @@
 
     $con = mysqli_connect("localhost", "user1", "12345", "all_class");
     
-    $sql = "select mem_id, role from mem_class where class_code= '$class_code'";
+    $sql = "select mem_id, role from mem_class where class_code= '$class_code' order by role desc";
     $result = mysqli_query($con, $sql);
 
     echo"<table id='mem_table' width='99%'>
