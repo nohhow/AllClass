@@ -4,7 +4,7 @@
         <main>
             <img src="img/main_class_img.png"/>
             <br/><br/>
-            <button id = "main_button" onclick="goClassRoom()">클래스룸으로</button>
+            <button id = "main_button" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);" onclick="goClassRoom()">클래스룸으로</button>
             
             <script>
                 function goClassRoom() {

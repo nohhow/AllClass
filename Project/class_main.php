@@ -5,7 +5,7 @@
         <main>
          <div class = "row">
                 <div>
-                    <button id="class_btn" onclick="access1()">CREATE</button>
+                    <button style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);" id="class_btn" onclick="access1()">CREATE</button>
                     <script>
                         // 로그인 안되어있으면 login_form.php가 보여짐
 
@@ -21,7 +21,7 @@
                         }
                     </script>
                     &nbsp;&nbsp;
-                    <button id="class_btn" onclick="access2()">JOIN</button>
+                    <button style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);" id="class_btn" onclick="access2()">JOIN</button>
                     <script>
                         // 로그인 안되어있으면 login_form.php가 보여짐
 
@@ -52,14 +52,14 @@
                     $class_result = mysqli_query($con, $sql2);
                     while ($class_list = mysqli_fetch_array($class_result)) {
                         echo '<div class="col-xl-3 col-md-6">
-                                    <div class="card bg-white text-body mb-4">
+                                    <div class="card bg-white text-body mb-4" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.3);">
                                         <div class="card-body">' . $class_list['class_name'] . '</div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-body stretched-link" href="class_detail.php?w=notice&class_name=' . $class_list['class_name'] . '&class_info=' . $class_list['class_info'] . '&class_code=' . $class_list['class_code'] . '">'.$class_list['class_info'].'</a>
                                             <div class="small text-body"><i class="fas fa-angle-right"></i></div>
                                         </div>
                                     </div>
-                                 </div>';
+                              </div>';
                     }
                 }
                 echo '</div>';

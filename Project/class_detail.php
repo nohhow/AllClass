@@ -35,7 +35,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
         <section>
             <div id="layoutSidenav">
                 <div id="layoutSidenav_nav">
-                    <nav class="sb-sidenav accordion sb-sidenav-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);" id="sidenavAccordion">
+                    <nav class="sb-sidenav accordion sb-sidenav-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);" id="sidenavAccordion">
                         <div class="sb-sidenav-menu">
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">공지사항</div>

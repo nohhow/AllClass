@@ -3,17 +3,17 @@
     height: 5rem;
     width: 40rem;
     color: white;
-    background: #df7cb2;
+    background: #F69B94;
     border: 1px #d197dd solid;
     box-shadow: inset 0 1px 0 #80B0FB;
 }
 
 #main_button:hover {
-    border: 1px #951399 solid;
+    border: 1px rgb(206, 165, 189) solid;
     box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-    background: #d775eb;
+    background: #F69B94;
 }
 
 #main_button:active {
-    box-shadow: inset 0 2px 5px #e458d1;   
+    box-shadow: inset 0 2px 5px rgb(207, 104, 164);   
 }

@@ -5,7 +5,7 @@ else $userid = "";
 if (isset($_SESSION["username"])) $username = $_SESSION["username"];
 else $username = "";
 ?>
-<nav class="sb-topnav navbar navbar-expand navbar-light bg-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.8);">
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);">
     <!-- Navbar Brand-->
     <?php
     if ($userid == "") {
