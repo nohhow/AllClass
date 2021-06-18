@@ -29,35 +29,41 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 		</header>
 		<section>
 			<div id="layoutSidenav">
-				<div id="layoutSidenav_nav">
-					<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-						<div class="sb-sidenav-menu">
-							<div class="nav">
-								<div class="sb-sidenav-menu-heading">공지사항</div>
-								<a class="nav-link" href="class_detail.php?w=notice&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-									<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-									공지사항
-								</a>
-								<div class="sb-sidenav-menu-heading">게시판</div>
-								<a class="nav-link collapsed" href="class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-									<div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-									자유게시판
-								</a>
-								<a class="nav-link collapsed" href="class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-									<div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-									질문게시판
-								</a>
-								<a class="nav-link collapsed" href="class_detail.php?w=assg&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
-									<div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-									과제게시판
-								</a>
-							</div>
-						</div>
-						<div class="sb-sidenav-footer">
-							<div class="small">모두의 클래스</div>
-						</div>
-					</nav>
-				</div>
+			<div id="layoutSidenav_nav">
+                    <nav class="sb-sidenav accordion sb-sidenav-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);" id="sidenavAccordion">
+                        <div class="sb-sidenav-menu">
+                            <div class="nav">
+                                <div class="sb-sidenav-menu-heading">공지사항</div>
+                                <a class="nav-link" href="class_detail.php?w=notice&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-check"></i></div>
+                                    공지사항
+                                </a>
+                                <div class="sb-sidenav-menu-heading">게시판</div>
+                                <a class="nav-link collapsed" href="class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    자유게시판
+                                </a>
+                                <a class="nav-link collapsed" href="class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-question"  style="width:14.39px"></i></div>
+                                    질문게시판
+                                </a>
+                                <a class="nav-link collapsed" href="class_detail.php?w=assg&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-marker"></i></div>
+                                    과제게시판
+                                </a>
+                                <div class="sb-sidenav-menu-heading">사용자</div>
+                                <a class="nav-link" href="class_detail.php?w=users&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                    사용자 명단
+                                </a>
+                                <a class="nav-link" href="class_detail.php?w=mail&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                                    메일 보내기
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
 				<div id="layoutSidenav_content">
 					<div id="board_box">
 						<h3 class="title">
@@ -65,7 +71,6 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 						</h3>
 						<?php
 						$num  = $_GET["num"];
-						//$page  = $_GET["page"];
 
 						$con = mysqli_connect("localhost", "user1", "12345", "all_class");
 						$sql = "select * from free_board_class where num=$num";
@@ -117,45 +122,126 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 						</ul>
 						<form name="free_comment" method="post" action="free_comment_insert.php?num=<?= $num ?>&class_code=<?= $class_code ?>">
 							<div style="height:50px">
-								<textarea name="content" style="float: left; width:80%; height:100%" placeholder="댓글을 입력하세요."></textarea>
-								<button type="button" style="float: right; width:20%; height:100%;" onclick="check_input()">입력</button>
+								<textarea id="comment_textarea" name="content" style="padding: 10px; float: left; width:80%; height:100%" placeholder="댓글을 입력하세요."></textarea>
+								<button type="button" style="float: right; width:20%; height:100%;" onclick="check_input()">댓글 입력</button>
 							</div>
 						</form>
-						<div>
-							<?php
-							$con = mysqli_connect("localhost", "user1", "12345", "all_class");
-							$sql = "select com_num, id, content, regist_day  from free_comment where class_code='$class_code' and num=$num";
-							$result = mysqli_query($con, $sql);
-							$total_record = mysqli_num_rows($result);
 
-							for ($i = 0; $i < $total_record; $i++) {
-								mysqli_data_seek($result, $i);
+						<!--comment-->
+						<?php
+						$con = mysqli_connect("localhost", "user1", "12345", "all_class");
+						$sql = "select com_num, id, content, regist_day  from free_comment where class_code='$class_code' and num=$num";
+						$result = mysqli_query($con, $sql);
+						$total_record = mysqli_num_rows($result);
+
+						for ($i = 0; $i < $total_record; $i++) {
+							mysqli_data_seek($result, $i);
+							// 가져올 레코드로 위치(포인터) 이동
+							$row = mysqli_fetch_array($result);
+							// 하나의 레코드 가져오기
+							$com_id          = $row["id"];
+							$com_num     = $row["com_num"];
+							$content     = $row["content"];
+							$regist_day  = $row["regist_day"];
+						?>
+
+
+							<div>
+								<div>
+									<span style="font-weight: bold; width: <?php echo (mb_strlen($com_id, 'utf-8')) * 5; ?>px"> <?= $com_id ?></span>
+									<span style="width: <?php echo (mb_strlen($regist_day, 'utf-8')) * 5; ?>px; font-size:10px"> | <?= $regist_day ?></span>
+								</div>
+								<div>
+									<span><?= $content ?></span>
+								</div>
+
+							</div>
+							<form name="free_reply<?php echo $com_num; ?>" method="post" action="free_comment_modify_delete_reply_insert.php?num=<?= $num ?>&reply_id=<?= $com_id ?>&com_num=<?= $com_num ?>&class_code=<?= $class_code ?>">
+								<textarea id='<?php echo $com_num; ?>' name="reply_content" style="padding: 10px; display:none; width:100%; height:80%" placeholder=""></textarea>
+								<div style="margin-top:0.2em; margin-bottom:0.2em; float:left; width:100%">
+									<button class="bts bts-left" name='i<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'i')">답글</button>
+									<?php
+									if ($userid == $com_id) {
+									?>
+
+
+										<button class="bts" name='m<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'm')">수정</button>
+										<button class="bts bts-right" name='d<?php echo $com_num; ?>' type="button" onclick="check_mi_input('<?php echo $com_num; ?>', 'd')">삭제</button>
+									<?php
+									}
+									?>
+
+									<button class="bts bts-right" id='cancel<?php echo $com_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none;" onclick="cancel('<?php echo $com_num; ?>')">취소</button>
+									<button class="bts bts-left" id='complete<?php echo $com_num; ?>' type="button" style="float:right; display:none; " onclick="">완료</button>
+
+								</div>
+							</form>
+							<?php
+							$sql = "select rep_num, id, content, regist_day, rep_id  from free_reply where class_code='$class_code' and num=$num and com_num=$com_num";
+							$reply_result = mysqli_query($con, $sql);
+							$reply_total_record = mysqli_num_rows($reply_result);
+
+							for ($j = 0; $j < $reply_total_record; $j++) {
+								mysqli_data_seek($reply_result, $j);
 								// 가져올 레코드로 위치(포인터) 이동
-								$row = mysqli_fetch_array($result);
+								$reply_row = mysqli_fetch_array($reply_result);
 								// 하나의 레코드 가져오기
-								$com_id          = $row["id"];
-								$com_num     = $row["com_num"];
-								$content     = $row["content"];
-								$regist_day  = $row["regist_day"];
+								$reply_id          = $reply_row["id"];
+								$reply_num     = $reply_row["rep_num"];
+								$reply_content     = $reply_row["content"];
+								$reply_regist_day  = $reply_row["regist_day"];
+								$reply_to_id       = $reply_row["rep_id"];
 							?>
-								<li>
-									<span class="col3"><?= $com_id ?></span>
-									<span class="col4"><?= $content ?></span>
-									<span class="col5"><?= $regist_day ?></span>
-									<span class="col6"><?= $com_num ?></span>
-								</li>
+
+								<div style="margin-left:1em;">
+									<div>
+										<span style="font-weight: bold; width: <?php echo (mb_strlen($reply_id, 'utf-8')) * 5; ?>px"><i class="fas fa-angle-right" style="margin-left:0.2em;"></i> <?= $reply_id ?></span>
+										<span style="width: <?php echo (mb_strlen($reply_to_id, 'utf-8')) * 5; ?>px"> @<?= $reply_to_id ?></span>
+										<span style="width: <?php echo (mb_strlen($reply_regist_day, 'utf-8')) * 5; ?>px; font-size:10px"> | <?= $reply_regist_day ?></span>
+									</div>
+									<div>
+										<span><?= $reply_content ?></span>
+									</div>
+
+								</div>
+
+								<form name="free_reply_reply<?php echo $reply_num; ?>" method="post" action="free_reply_modify_delete_insert.php?reply_num=<?= $reply_num ?>&num=<?= $num ?>&reply_id=<?= $reply_id ?>&com_num=<?= $com_num ?>&class_code=<?= $class_code ?>">
+									<textarea id='<?php echo $reply_num; ?>' name="reply_content" style="padding: 10px; margin-left:1em; display:none; width:100%; height:80%" placeholder=""></textarea>
+									<div style="margin-left:1em; margin-top:0.2em; margin-bottom:0.2em; float:left; width:100%">
+										<button class="bts bts-left" name='i<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="reply_reply_input('<?php echo $reply_num; ?>', 'i')">답글</button>
+
+										<?php
+										if ($userid == $com_id) {
+										?>
+
+
+											<button class="bts" name='m<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="reply_reply_input('<?php echo $reply_num; ?>', 'm')">수정</button>
+											<button class="bts-right" name='d<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="check_reply_mi_input('<?php echo $reply_num; ?>', 'd')">삭제</button>
+										<?php
+										}
+										?>
+										<button class="bts bts-right" id='cancel_reply<?php echo $reply_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none; width:10%; height:100%;" onclick="reply_cancel('<?php echo $reply_num; ?>')">취소</button>
+										<button class="bts bts-left" id='complete_reply<?php echo $reply_num; ?>' type="button" style="float:right; display:none; width:10%; height:100%;" onclick="">완료</button>
+									</div>
+
+
+								</form>
+
+
 							<?php
 							}
-							mysqli_close($con);
 							?>
-						</div>
+
+
+						<?php
+						}
+						mysqli_close($con);
+						?>
+
 					</div> <!-- board_box -->
 				</div>
 			</div>
 		</section>
-		<footer class="py-4 bg-light mt-auto">
-			<?php include "footer.php"; ?>
-		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 		<script src="js/scripts.js"></script>
 		<script>
@@ -164,7 +250,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 
 			function modify() {
 				var class_code = '<?php echo $class_code; ?>';
-
+				var btn;
 
 				window.open("free_modify_form.php?num=" + num,
 					"NOTICEregist",
@@ -179,9 +265,130 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 				}
 
 				document.free_comment.submit();
+
+				document.getElementById("comment_textarea").value = "";
+			}
+
+			function check_mi_input(s, flag) {
+				if (!document.getElementById(s).value) {
+					if (flag != 'd') {
+						document.getElementById(s).focus();
+						alert("내용을 입력하세요!");
+						return;
+					}
+				}
+				var form_name = 'free_reply' + s;
+
+				if (flag == 'm') {
+					document.forms[form_name].action += "&flag=m";
+				} else if (flag == 'i') {
+					document.forms[form_name].action += "&flag=i";
+				} else {
+					document.forms[form_name].action += "&flag=d";
+				}
+
+				document.forms[form_name].submit();
+
+				document.getElementById(s).placeholder = "";
+				document.getElementById(s).value = "";
+				document.getElementById(s).style.display = 'none';
+			}
+
+			function check_reply_mi_input(s, flag) {
+				if (!document.getElementById(s).value) {
+					if (flag != 'd') {
+						document.getElementById(s).focus();
+						alert("내용을 입력하세요!");
+						return;
+					}
+				}
+				var form_name = 'free_reply_reply' + s;
+
+				if (flag == 'm') {
+					document.forms[form_name].action += "&flag=m";
+				} else if (flag == 'i') {
+					document.forms[form_name].action += "&flag=i";
+				} else {
+					document.forms[form_name].action += "&flag=d";
+				}
+
+				document.forms[form_name].submit();
+
+				document.getElementById(s).placeholder = "";
+				document.getElementById(s).value = "";
+				document.getElementById(s).style.display = 'none';
+			}
+
+			function reply_input(s, flag) {
+				if (document.getElementById(s).style.display == 'none') {
+					document.getElementById(s).style.display = 'block';
+					document.getElementById('cancel' + s).style.display = 'inline-block';
+					document.getElementById('complete' + s).style.display = 'inline-block';
+
+					if (flag == 'm') {
+						document.getElementById('complete' + s).setAttribute("onClick", "check_mi_input(" + s + ", 'm')");
+						document.getElementById(s).placeholder = "수정할 내용을 입력하세요.";
+					} else {
+						document.getElementById('complete' + s).setAttribute("onClick", "check_mi_input(" + s + ", 'i')");
+						document.getElementById(s).placeholder = "답글을 입력하세요.";
+					}
+
+				} else if (document.getElementById(s).placeholder != "") {
+					if (flag == 'm') {
+						document.getElementById('complete' + s).setAttribute("onClick", "check_mi_input(" + s + ", 'm')");
+						document.getElementById(s).placeholder = "수정할 내용을 입력하세요.";
+					} else {
+						document.getElementById('complete' + s).setAttribute("onClick", "check_mi_input(" + s + ", 'i')");
+						document.getElementById(s).placeholder = "답글을 입력하세요.";
+					}
+
+				}
+			}
+
+			function reply_reply_input(s, flag) {
+				if (document.getElementById(s).style.display == 'none') {
+					document.getElementById(s).style.display = 'block';
+					document.getElementById('cancel_reply' + s).style.display = 'block';
+					document.getElementById('complete_reply' + s).style.display = 'block';
+					if (flag == 'm') {
+						document.getElementById('complete_reply' + s).setAttribute("onClick", "check_reply_mi_input(" + s + ", 'm')");
+						document.getElementById(s).placeholder = "수정할 내용을 입력하세요.";
+					} else {
+						document.getElementById('complete_reply' + s).setAttribute("onClick", "check_reply_mi_input(" + s + ", 'i')");
+						document.getElementById(s).placeholder = "답글을 입력하세요.";
+					}
+
+				} else if (document.getElementById(s).placeholder != "") {
+					if (flag == 'm') {
+						document.getElementById('complete_reply' + s).setAttribute("onClick", "check_reply_mi_input(" + s + ", 'm')");
+						document.getElementById(s).placeholder = "수정할 내용을 입력하세요.";
+					} else {
+						document.getElementById('complete_reply' + s).setAttribute("onClick", "check_reply_mi_input(" + s + ", 'i')");
+						document.getElementById(s).placeholder = "답글을 입력하세요.";
+					}
+
+				}
+			}
+
+			function cancel(s) {
+				document.getElementById(s).style.display = 'none';
+				document.getElementById(s).value = "";
+				document.getElementById(s).placeholder = "";
+				document.getElementById('complete' + s).style.display = 'none';
+				document.getElementById('cancel' + s).style.display = 'none';
+			}
+
+			function reply_cancel(s) {
+				document.getElementById(s).style.display = 'none';
+				document.getElementById(s).value = "";
+				document.getElementById(s).placeholder = "";
+				document.getElementById('complete_reply' + s).style.display = 'none';
+				document.getElementById('cancel_reply' + s).style.display = 'none';
 			}
 		</script>
+
 	</body>
+
 
 	</html>
 
