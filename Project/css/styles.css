@@ -75,6 +75,25 @@ ul { list-style-type: none; }
   overflow : auto;
 }
 
+.board_table {
+  border-collapse: collapse;
+  text-align : center;
+  line-height: 1.5;
+}
+.board_table tbody th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+.board_table td {
+  text-align : center;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -222,7 +241,7 @@ sup {
 }
 
 a {
-  color: #0d6efd;
+  color: black;
   text-decoration: underline;
 }
 a:hover {
@@ -321,7 +340,7 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 1;
 }
 
 button:focus:not(:focus-visible) {

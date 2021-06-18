@@ -43,7 +43,7 @@
             </table>
             <hr/>
 
-            <span style = "font-weight : bold; padding : 10px">제목 </span><input type="text" id = "clean1" name="subject" style = "width : 90%"/><br/>
+            <span style = "font-weight : bold; padding : 10px">제목 </span><input type="text" id = "clean1" name="subject" style = "width : 80%"/><br/>
             <span style = "font-weight : bold; padding : 10px">내용</span><br/>
             <textarea name="content" id = "clean2" cols="65" rows="15" style="width : 95%; margin: 10px; padding : 5px"></textarea>
             <input type="button" value="전송하기" onclick="clean_form()" style = "margin : 10px">

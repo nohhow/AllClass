@@ -1,16 +1,14 @@
 <?php session_start(); 
 ?>
 
-<div id="board_box" >
-    <ul id="board_list">
-        <li>
-            <span class="col1">번호</span>
-            <span class="col2">제목</span>
-            <span class="col3">글쓴이</span>
-            <span class="col4">첨부</span>
-            <span class="col5">등록일</span>
-            <span class="col6">조회</span>
-        </li>
+<div>
+    <table class = "board_table" width = "100%">
+            <th>번호</th>
+            <th width = "40%">제목</th>
+            <th width = "20%">글쓴이</th>
+            <th>첨부</th>
+            <th>등록일</th>
+            <th>조회</th>
         <?php
 
 
@@ -36,32 +34,17 @@
             else
                 $file_image = " ";
         ?>
-            <li>
-                <span class="col1"><?= $seq ?></span>
-                <span class="col2"><a href="free_view.php?w=free&num=<?= $num ?>&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>"><?= $subject ?></a></span>
-                <span class="col3"><?= $name ?></span>
-                <span class="col4"><?= $file_image ?></span>
-                <span class="col5"><?= $regist_day ?></span>
-                <span class="col6"><?= $hit ?></span>
-            </li>
+            <tr>
+                <td class="col1"><?= $seq ?></td>
+                <td class="col2"><a  href="free_view.php?w=free&num=<?= $num ?>&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>"><?= $subject ?></a></td>
+                <td class="col3"><?= $name ?></td>
+                <td class="col4"><?= $file_image ?></td>
+                <td class="col5"><?= $regist_day ?></td>
+                <td class="col6"><?= $hit ?></td>
+            </tr>
         <?php
         }
         mysqli_close($con);
-
         ?>
-    </ul>
-    <ul class="buttons">
-        <li>
-            <?php
-            if ($userid) {
-            ?>
-            <?php
-            } else {
-            ?>
-                <a href="javascript:alert('로그인 후 이용해 주세요!')"></a>
-            <?php
-            }
-            ?>
-        </li>
-    </ul>
+    </table>
 </div><!--  board_box -->

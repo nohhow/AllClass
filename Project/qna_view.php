@@ -16,11 +16,11 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>모두의 클래스</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?after" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="./css/common.css">
-        <link rel="stylesheet" type="text/css" href="./css/details.css">
-        <link rel="stylesheet" type="text/css" href="./css/board.css">
+        <link rel="stylesheet" type="text/css" href="./css/common.css?after">
+        <link rel="stylesheet" type="text/css" href="./css/details.css?after">
+        <link rel="stylesheet" type="text/css" href="./css/board.css?after">
     </head>
 
     <body class="sb-nav-fixed">
@@ -64,128 +64,124 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                         </div>
                     </nav>
                 </div>
-                <div id="layoutSidenav_content">
+                <div id="layoutSidenav_content" style = "margin-bottom : 5%">
                     <div id="board_box">
-                        <h3 class="title">
-                            게시판 > 내용보기
-                        </h3>
-                        <?php
-                        $num  = $_GET["num"];
+                        <div style = "margin-top : 5%; padding : 10px; box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.3);" class = "card"> <!-- 질문 -->
 
-                        $con = mysqli_connect("localhost", "user1", "12345", "all_class");
-                        $sql = "select * from qna_board_class where num=$num";
-                        $result = mysqli_query($con, $sql);
+                            <?php
+                            $num  = $_GET["num"];
 
-                        $row = mysqli_fetch_array($result);
-                        $id      = $row["id"];
-                        $name      = $row["name"];
-                        $regist_day = $row["regist_day"];
-                        $subject    = $row["subject"];
-                        $content    = $row["content"];
-                        $file_name    = $row["file_name"];
-                        $file_type    = $row["file_type"];
-                        $file_copied  = $row["file_copied"];
-                        $hit          = $row["hit"];
-                        $reply_check  = $row["reply_check"];
+                            $con = mysqli_connect("localhost", "user1", "12345", "all_class");
+                            $sql = "select * from qna_board_class where num=$num";
+                            $result = mysqli_query($con, $sql);
 
-                        $content = str_replace(" ", "&nbsp;", $content);
-                        $content = str_replace("\n", "<br>", $content);
-
-                        $new_hit = $hit + 1;
-                        $sql = "update qna_board_class set hit=$new_hit where num=$num";
-                        mysqli_query($con, $sql);
-                        ?>
-                        <ul id="view_content">
-                            <li>
-                                <span class="col1"><b><?php if ($reply_check == 'Y') { ?> [해결됨]<?php } ?>제목 :</b> <?= $subject ?></span>
-                                <span class="col2"><?= $name ?> | <?= $regist_day ?></span>
-                            </li>
-                            <li>
-                                <?php
-                                if ($file_name) {
-                                    $real_name = $file_copied;
-                                    $file_path = "./data/" . $real_name;
-                                    $file_size = filesize($file_path);
-
-                                    echo "<img style='width: 80%;'" . " src='$file_path'/><br><br>";
-                                }
-                                ?>
-                                <?= $content ?>
-                            </li>
-                        </ul>
-
-                        <ul class="buttons">
-                            <li><button onclick="location.href='class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
-                            <?php if ($username == $name) { ?>
-                                <li><button onclick="modify()">수정</button></li>
-                                <li><button onclick="location.href='qna_delete.php?num=<?= $num ?>&w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
-                            <?php } ?>
-                            <li><button onclick="input_answer()">답변하기</button></li>`
-                        </ul>
-
-                        <!--comment-->
-                        <?php
-                        $con = mysqli_connect("localhost", "user1", "12345", "all_class");
-                        $sql = "select *  from qna_board_class where class_code='$class_code' and reply_num=$num";
-                        $result = mysqli_query($con, $sql);
-                        $total_record = mysqli_num_rows($result);
-
-                        for ($i = 0; $i < $total_record; $i++) {
-                            mysqli_data_seek($result, $i);
-                            // 가져올 레코드로 위치(포인터) 이동
                             $row = mysqli_fetch_array($result);
-                            // 하나의 레코드 가져오기
-                            $reply_id          = $row["id"];
-                            $reply_subject    = $row["subject"];
-                            $reply_name      = $row["name"];
-                            $reply_num     = $row["num"];
-                            $reply_content     = $row["content"];
-                            $reply_regist_day  = $row["regist_day"];
-                            $reply_file_name    = $row["file_name"];
-                            $reply_file_type    = $row["file_type"];
-                            $reply_file_copied  = $row["file_copied"];
-                            $reply_reply_check  = $row["reply_check"];
-                        ?>
+                            $id      = $row["id"];
+                            $name      = $row["name"];
+                            $regist_day = $row["regist_day"];
+                            $subject    = $row["subject"];
+                            $content    = $row["content"];
+                            $file_name    = $row["file_name"];
+                            $file_type    = $row["file_type"];
+                            $file_copied  = $row["file_copied"];
+                            $hit          = $row["hit"];
+                            $reply_check  = $row["reply_check"];
 
+                            $content = str_replace(" ", "&nbsp;", $content);
+                            $content = str_replace("\n", "<br>", $content);
 
-                            <ul id="view_content">
+                            $new_hit = $hit + 1;
+                            $sql = "update qna_board_class set hit=$new_hit where num=$num";
+                            mysqli_query($con, $sql);
+                            ?>
+                            <ul style="padding-left: 0;" id="view_content">
                                 <li>
-                                    <span class="col1"><b><?php if ($reply_reply_check == 'Y') { ?> [채택된 답변]<?php } ?>제목 :</b> <?= $reply_subject ?></span>
-                                    <span class="col2"><?= $reply_name ?> | <?= $reply_regist_day ?></span>
+                                    <span class="col1"><b><?php if ($reply_check == 'Y') { ?> [해결됨]<?php } ?> 질문 :</b> <?= $subject ?></span>
+                                    <span class="col2"><?= $name ?> | <?= $regist_day ?></span>
                                 </li>
                                 <li>
                                     <?php
-                                    if ($reply_file_name) {
-                                        $reply_real_name = $reply_file_copied;
-                                        $reply_file_path = "./data/" . $reply_real_name;
-                                        $reply_file_size = filesize($reply_file_path);
+                                    if ($file_name) {
+                                        $real_name = $file_copied;
+                                        $file_path = "./data/" . $real_name;
+                                        $file_size = filesize($file_path);
 
-                                        echo "<img style='width: 80%;'" . " src='$reply_file_path'/><br><br>";
+                                        echo "<img style='width: 80%;'" . " src='$file_path'/><br><br>";
                                     }
                                     ?>
-                                    <?= $reply_content ?>
+                                    <?= $content ?>
                                 </li>
                             </ul>
+
                             <ul class="buttons">
                                 <li><button onclick="location.href='class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
-                                <?php if ($username == $reply_name) { ?>
-                                    <li><button onclick="modify(<?= $reply_num ?>)">수정</button></li>
-                                    <li><button onclick="location.href='qna_delete.php?num=<?= $reply_num ?>&w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
-                                <?php }
-                                if ($reply_check == 'N' && $username == $name) { ?>
-                                    <li><button onclick="location.href='qna_reply_check.php?num=<?= $reply_num ?>&reply_num=<?= $num ?>'">해결상태로만들기</button></li>
-                                <?php } ?>                    
+                                <?php if ($username == $name) { ?>
+                                    <li><button onclick="modify()">수정</button></li>
+                                    <li><button onclick="location.href='qna_delete.php?num=<?= $num ?>&w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
+                                <?php } ?>
+                                <li><button onclick="input_answer()">답변하기</button></li>
                             </ul>
+                        </div> <!-- 질문 -->
+                        <hr style = "margin-top : 5%; height : 3px; color :black"/>
+                        <!-- <div style = "margin-top : 5%; padding : 10px; box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.3);" class = "card"> -->
+                            <?php
+                            $con = mysqli_connect("localhost", "user1", "12345", "all_class");
+                            $sql = "select *  from qna_board_class where class_code='$class_code' and reply_num=$num";
+                            $result = mysqli_query($con, $sql);
+                            $total_record = mysqli_num_rows($result);
 
+                            for ($i = 0; $i < $total_record; $i++) {
+                                mysqli_data_seek($result, $i);
+                                // 가져올 레코드로 위치(포인터) 이동
+                                $row = mysqli_fetch_array($result);
+                                // 하나의 레코드 가져오기
+                                $reply_id          = $row["id"];
+                                $reply_subject    = $row["subject"];
+                                $reply_name      = $row["name"];
+                                $reply_num     = $row["num"];
+                                $reply_content     = $row["content"];
+                                $reply_regist_day  = $row["regist_day"];
+                                $reply_file_name    = $row["file_name"];
+                                $reply_file_type    = $row["file_type"];
+                                $reply_file_copied  = $row["file_copied"];
+                                $reply_reply_check  = $row["reply_check"];
+                            ?>
 
+                            <div style = "margin-top : 5%; padding : 10px; box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.3);" class = "card">
+                                <ul style="padding-left: 0;"id="view_content">
+                                    <li>
+                                        <span class="col1"><b><i class="fas fa-angle-right" style="margin-left:0.2em;"></i> <?php if ($reply_reply_check == 'Y') { ?> [채택된 답변]<?php } ?> 답변 :</b> <?= $reply_subject ?></span>
+                                        <span class="col2"><?= $reply_name ?> | <?= $reply_regist_day ?></span>
+                                    </li>
+                                    <li>
+                                        <?php
+                                        if ($reply_file_name) {
+                                            $reply_real_name = $reply_file_copied;
+                                            $reply_file_path = "./data/" . $reply_real_name;
+                                            $reply_file_size = filesize($reply_file_path);
 
-
-
-                        <?php
-                        }
-                        mysqli_close($con);
-                        ?>
-
+                                            echo "<img style='width: 80%;'" . " src='$reply_file_path'/><br><br>";
+                                        }
+                                        ?>
+                                        <?= $reply_content ?>
+                                    </li>
+                                </ul>
+                                <ul class ="buttons">
+                                    <li><button onclick="location.href='class_detail.php?w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
+                                    <?php if ($username == $reply_name) { ?>
+                                        <li><button onclick="modify(<?= $reply_num ?>)">수정</button></li>
+                                        <li><button onclick="location.href='qna_delete.php?num=<?= $reply_num ?>&w=qna&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
+                                    <?php }
+                                    if ($reply_check == 'N' && $username == $name) { ?>
+                                        <li><button onclick="location.href='qna_reply_check.php?num=<?= $reply_num ?>&reply_num=<?= $num ?>'">해결상태로만들기</button></li>
+                                    <?php } ?>                    
+                                </ul>
+                                    </div>
+                            <?php
+                            }
+                            mysqli_close($con);
+                            ?>
+                        <!-- </div> -->
                     </div> <!-- board_box -->
                 </div>
             </div>

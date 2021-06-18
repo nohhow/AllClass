@@ -28,8 +28,8 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 			<?php include "class_detail_header.php"; ?>
 		</header>
 		<section>
-			<div id="layoutSidenav">
-			<div id="layoutSidenav_nav">
+		<div id="layoutSidenav">
+				<div id="layoutSidenav_nav">
                     <nav class="sb-sidenav accordion sb-sidenav-light" style="box-shadow:0 0.5px 3px rgba(0, 0, 0, 0.5);" id="sidenavAccordion">
                         <div class="sb-sidenav-menu">
                             <div class="nav">
@@ -64,7 +64,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                         </div>
                     </nav>
                 </div>
-				<div id="layoutSidenav_content">
+				<div id="layoutSidenav_content" style = "margin-bottom : 5%">
 					<div id="board_box">
 						<h3 class="title">
 							게시판 > 내용보기
@@ -94,7 +94,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 						$sql = "update free_board_class set hit=$new_hit where num=$num";
 						mysqli_query($con, $sql);
 						?>
-						<ul id="view_content">
+						<ul style="padding-left:0;" id="view_content">
 							<li>
 								<span class="col1"><b>제목 :</b> <?= $subject ?></span>
 								<span class="col2"><?= $name ?> | <?= $regist_day ?></span>
@@ -159,20 +159,20 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 							<form name="free_reply<?php echo $com_num; ?>" method="post" action="free_comment_modify_delete_reply_insert.php?num=<?= $num ?>&reply_id=<?= $com_id ?>&com_num=<?= $com_num ?>&class_code=<?= $class_code ?>">
 								<textarea id='<?php echo $com_num; ?>' name="reply_content" style="padding: 10px; display:none; width:100%; height:80%" placeholder=""></textarea>
 								<div style="margin-top:0.2em; margin-bottom:0.2em; float:left; width:100%">
-									<button class="bts bts-left" name='i<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'i')">답글</button>
+									<button name='i<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'i')">답글</button>
 									<?php
 									if ($userid == $com_id) {
 									?>
 
 
-										<button class="bts" name='m<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'm')">수정</button>
-										<button class="bts bts-right" name='d<?php echo $com_num; ?>' type="button" onclick="check_mi_input('<?php echo $com_num; ?>', 'd')">삭제</button>
+										<button name='m<?php echo $com_num; ?>' type="button" onclick="reply_input('<?php echo $com_num; ?>', 'm')">수정</button>
+										<button name='d<?php echo $com_num; ?>' type="button" onclick="check_mi_input('<?php echo $com_num; ?>', 'd')">삭제</button>
 									<?php
 									}
 									?>
 
-									<button class="bts bts-right" id='cancel<?php echo $com_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none;" onclick="cancel('<?php echo $com_num; ?>')">취소</button>
-									<button class="bts bts-left" id='complete<?php echo $com_num; ?>' type="button" style="float:right; display:none; " onclick="">완료</button>
+									<button id='cancel<?php echo $com_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none;" onclick="cancel('<?php echo $com_num; ?>')">취소</button>
+									<button id='complete<?php echo $com_num; ?>' type="button" style="float:right; display:none; " onclick="">완료</button>
 
 								</div>
 							</form>
@@ -208,20 +208,18 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 								<form name="free_reply_reply<?php echo $reply_num; ?>" method="post" action="free_reply_modify_delete_insert.php?reply_num=<?= $reply_num ?>&num=<?= $num ?>&reply_id=<?= $reply_id ?>&com_num=<?= $com_num ?>&class_code=<?= $class_code ?>">
 									<textarea id='<?php echo $reply_num; ?>' name="reply_content" style="padding: 10px; margin-left:1em; display:none; width:100%; height:80%" placeholder=""></textarea>
 									<div style="margin-left:1em; margin-top:0.2em; margin-bottom:0.2em; float:left; width:100%">
-										<button class="bts bts-left" name='i<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="reply_reply_input('<?php echo $reply_num; ?>', 'i')">답글</button>
+										<button name='i<?php echo $reply_num; ?>' type="button"  onclick="reply_reply_input('<?php echo $reply_num; ?>', 'i')">답글</button>
 
 										<?php
-										if ($userid == $com_id) {
+										if ($userid == $reply_id) {
 										?>
-
-
-											<button class="bts" name='m<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="reply_reply_input('<?php echo $reply_num; ?>', 'm')">수정</button>
-											<button class="bts-right" name='d<?php echo $reply_num; ?>' type="button" style="width:10%; height:100%;" onclick="check_reply_mi_input('<?php echo $reply_num; ?>', 'd')">삭제</button>
+											<button name='m<?php echo $reply_num; ?>' type="button" onclick="reply_reply_input('<?php echo $reply_num; ?>', 'm')">수정</button>
+											<button name='d<?php echo $reply_num; ?>' type="button" onclick="check_reply_mi_input('<?php echo $reply_num; ?>', 'd')">삭제</button>
 										<?php
 										}
 										?>
-										<button class="bts bts-right" id='cancel_reply<?php echo $reply_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none; width:10%; height:100%;" onclick="reply_cancel('<?php echo $reply_num; ?>')">취소</button>
-										<button class="bts bts-left" id='complete_reply<?php echo $reply_num; ?>' type="button" style="float:right; display:none; width:10%; height:100%;" onclick="">완료</button>
+										<button id='cancel_reply<?php echo $reply_num; ?>' type="button" style="margin-left:0.5em; float:right; display:none;" onclick="reply_cancel('<?php echo $reply_num; ?>')">취소</button>
+										<button id='complete_reply<?php echo $reply_num; ?>' type="button" style="float:right; display:none;" onclick="">완료</button>
 									</div>
 
 

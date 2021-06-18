@@ -10,7 +10,9 @@ CREATE TABLE `qna_board_class` (
   `file_type` char(40) DEFAULT NULL,
   `file_copied` char(40) DEFAULT NULL,
   `class_code` char(40) NOT NULL,
-  `reply_num` int,
+  `reply_num` int DEFAULT '0',
+  `reply_check` char(1) DEFAULT 'N',
   PRIMARY KEY (`num`),
-  FOREIGN KEY (`class_code`) REFERENCES `classes` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE= utf8_general_ci
+  KEY `class_code` (`class_code`),
+  CONSTRAINT `qna_board_class_ibfk_1` FOREIGN KEY (`class_code`) REFERENCES `classes` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci
