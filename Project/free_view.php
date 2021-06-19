@@ -16,11 +16,11 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 		<meta name="description" content="" />
 		<meta name="author" content="" />
 		<title>모두의 클래스</title>
-		<link href="css/styles.css" rel="stylesheet" />
+		<link href="css/styles.css?after" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="./css/common.css">
-		<link rel="stylesheet" type="text/css" href="./css/details.css">
-		<link rel="stylesheet" type="text/css" href="./css/board.css">
+		<link rel="stylesheet" type="text/css" href="./css/common.css?after">
+		<link rel="stylesheet" type="text/css" href="./css/details.css?after">
+		<link rel="stylesheet" type="text/css" href="./css/board.css?after">
 	</head>
 
 	<body class="sb-nav-fixed">
@@ -102,24 +102,31 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 							<li>
 								<?php
 								if ($file_name) {
-									$real_name = $file_copied;
-									$file_path = "./data/" . $real_name;
-									$file_size = filesize($file_path);
-
-									echo "<img style='width: 100%;'" . " src='$file_path'/><br><br>";
+								$real_name = $file_copied;
+								$file_path = "./data/" . $real_name;
+								$file_size = filesize($file_path);
+								if (strpos($file_type, "image/")!==false) {
+									if(strpos($file_type, "svg") !== false){
+										echo "$file_name<br>";
+									}else echo "<img style='width: 100%' src='$file_path'/><br><br>";
+								} else {
+									echo "<div class = 'text-body' style = 'font-size : 10px'>첨부파일 : $file_name </div><br>";
+								}
+								
 								}
 								?>
 								<?= $content ?>
 							</li>
 						</ul>
 
-						<ul class="buttons">
-							<li><button onclick="location.href='class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
-							<?php if ($username == $name) { ?>
-								<li><button onclick="modify()">수정</button></li>
-								<li><button onclick="location.href='free_delete.php?num=<?= $num ?>&w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
-							<?php } ?>
-						</ul>
+					<ul class="buttons">
+						<li><button onclick="location.href='class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
+						<li><button onclick="location.href='board_download.php?&real_name=<?php echo $real_name; ?>&file_name=<?php echo $file_name; ?>&file_type=<?php echo $file_type; ?>'">파일 저장</button></li>
+						<?php if ($username == $name) { ?>
+							<li><button onclick="modify()">수정</button></li>
+							<li><button onclick="location.href='free_delete.php?num=<?= $num ?>&w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
+						<?php } ?>
+					</ul>
 						<form name="free_comment" method="post" action="free_comment_insert.php?num=<?= $num ?>&class_code=<?= $class_code ?>">
 							<div style="height:50px">
 								<textarea id="comment_textarea" name="content" style="padding: 10px; float: left; width:80%; height:100%" placeholder="댓글을 입력하세요."></textarea>

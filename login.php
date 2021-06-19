@@ -57,8 +57,6 @@
             session_start();
             $_SESSION["userid"] = $row["id"];
             $_SESSION["username"] = $row["name"];
-            $_SESSION["userlevel"] = $row["level"];
-            $_SESSION["userpoint"] = $row["point"];
 
             echo("
               <script>
