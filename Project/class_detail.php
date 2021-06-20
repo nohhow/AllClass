@@ -65,6 +65,28 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                                     메일 보내기
                                 </a>
+                                <br/>
+                                <form name="remove_class_form" method="post" action="class_remove.php?class_code=<?php echo $class_code; ?>">
+                                    <input type="submit" id ="remove_class" value="클래스 삭제하기" style = "width : 100%"/>
+                                </form>
+                                <?php
+                                $con = mysqli_connect("localhost", "user1", "12345", "all_class");
+
+                                $sql = "select role from mem_class where class_code='$class_code' and mem_id = '$userid'";
+                                $result = mysqli_query($con, $sql);
+                                $row = mysqli_fetch_array($result);
+                                $role = $row[0];
+
+                                mysqli_close($con);
+                                ?>
+                                <script>
+                                    var role = '<?php echo $role; ?>';
+
+                                    if (role == 'S') {
+                                        document.getElementById("remove_class").style.display = 'none';
+                                    }
+
+                                </script>
                             </div>
                         </div>
                     </nav>
@@ -107,17 +129,7 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
                             </div>
                             <!-- 사용자의 role에 따라서 보여지는 버튼 (T의 역할을 가진 사용자만 공지사항 등록 버튼이 보임) -->
                             <button id = "add_notice" onclick = "regist()">등록하기</button>
-                            <?php
-                                $con = mysqli_connect("localhost", "user1", "12345", "all_class");
 
-                                $sql = "select role from mem_class where class_code='$class_code' and mem_id = '$userid'";
-                                $result = mysqli_query($con, $sql);
-                                $row = mysqli_fetch_array($result);
-                                $role = $row[0];
-                                
-                                mysqli_close($con);
-
-                            ?>
                             <script>
                                 var role = '<?php echo $role; ?>';
                                 var where = '<?php echo $where; ?>';
