@@ -121,8 +121,13 @@ if (isset($_GET['class_name']) && !empty($_GET['class_name']) and isset($_GET['c
 
 					<ul class="buttons">
 						<li><button onclick="location.href='class_detail.php?w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">목록</button></li>
+						<?php if($file_name != null){
+						?>
 						<li><button onclick="location.href='board_download.php?&real_name=<?php echo $real_name; ?>&file_name=<?php echo $file_name; ?>&file_type=<?php echo $file_type; ?>'">파일 저장</button></li>
-						<?php if ($username == $name) { ?>
+						<?php
+						}
+                     	?>						
+					 	<?php if ($username == $name) { ?>
 							<li><button onclick="modify()">수정</button></li>
 							<li><button onclick="location.href='free_delete.php?num=<?= $num ?>&w=free&class_name=<?php echo $class_name; ?>&class_info=<?php echo $class_info; ?>&class_code=<?php echo $class_code; ?>'">삭제</button></li>
 						<?php } ?>
