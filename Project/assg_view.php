@@ -85,8 +85,8 @@
 <!-- date form에 현재 날짜로 미리 세팅 (시간은 편의상 오후 12시로 고정) -->
     <script>
          document.getElementById('set_date').value = new Date().toISOString().substring(0, 10);
-         document.getElementById('assg_title').value = '<?php echo $board_list['title'];?>';
-         document.getElementById('assg_content').value = '<?php echo $board_list['content'];?>';
+         document.getElementById('assg_title').value = '<?php echo $board_list['title']; ?> ';
+         document.getElementById('assg_content').value = '<?php echo $board_list['content']; ?> ';
 
          function openView(view){
             if(view == 'modify'){
